@@ -70,7 +70,7 @@ const App = () => {
         <Page number="3">Page 11</Page>
         <Page number="4">Page 12</Page>
       </HTMLFlipBook>
-      <div>Current Page: {currentPage + 1}</div>
+      {/* <div>Current Page: {currentPage + 1}</div> */}
     </Box>
   );
 };
