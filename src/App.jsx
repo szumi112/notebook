@@ -40,10 +40,8 @@ const App = () => {
     <Box overflow="hidden" data-density="hard" bgColor={"white"}>
       <HTMLFlipBook
         width={size.width / 2}
-        height={size.height}
+        height={size.height * 2.5}
         size="stretch"
-        minWidth={315}
-        maxWidth={1000}
         maxShadowOpacity={0.5}
         showCover={true}
         mobileScrollSupport={true}
