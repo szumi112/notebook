@@ -17,15 +17,19 @@ const App = () => {
     width: window.innerWidth,
     height: window.innerHeight,
   });
+  const [singlePage, setSinglePage] = useState(window.innerWidth < 1400);
   const [currentPage, setCurrentPage] = useState(0);
   const flipBook = useRef();
 
   useEffect(() => {
     const handleResize = () => {
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
       setSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: newWidth,
+        height: newHeight,
       });
+      setSinglePage(newWidth < 1400);
     };
 
     window.addEventListener("resize", handleResize);
@@ -39,14 +43,16 @@ const App = () => {
   return (
     <Box overflow="hidden" data-density="hard" bgColor={"white"}>
       <HTMLFlipBook
-        width={size.width / 2}
+        width={singlePage ? size.width : size.width / 2}
         height={size.height * 2.5}
-        size="stretch"
+        {...(!singlePage && { size: "stretch" })}
         maxShadowOpacity={0.5}
         showCover={true}
         mobileScrollSupport={true}
         flippingMode="hard"
         onFlip={onPageFlip}
+        ref={flipBook}
+        drawShadow={!singlePage}
       >
         <Page number="1" className="wooden-background">
           <Text
