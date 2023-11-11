@@ -37,11 +37,7 @@ const App = () => {
   };
 
   return (
-    <Box
-      overflow="hidden"
-      data-density="hard"
-      bgColor={currentPage === 0 || currentPage === 1 ? "white" : "#f5deb3"}
-    >
+    <Box overflow="hidden" data-density="hard" bgColor={"white"}>
       <HTMLFlipBook
         width={size.width / 2}
         height={size.height}
